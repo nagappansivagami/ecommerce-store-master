@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE_SERVER = 'SonarQubeServer' // URL of the SonarQube server
-        SONARQUBE_TOKEN = credentials('sonar-token') // SonarQube token stored in Jenkins credentials
+        SONARQUBE_SERVER = 'http://192.168.101.41:9000/'
+        SONARQUBE_TOKEN = sqa_914c47408a3e7c8786e2398d718a4c01beb4045e
         SCANNER_HOME = tool 'SonarQubeScanner' // The SonarQube Scanner CLI tool configured in Jenkins
     }
 
@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from GitHub repository
-                git url: 'https://github.com/nagappansivagami/ecommerce-store-master.git', branch: 'master'
+                git url: 'https://github.com/nagappansivagami/ecommerce-store-master.git', branch: 'main'
             }
         }
 
@@ -20,7 +20,7 @@ pipeline {
                 withSonarQubeEnv('SonarQubeServer') {
                     // Run SonarQube scanner
                     sh "${SCANNER_HOME}/bin/sonar-scanner \
-                        -Dsonar.projectKey=your-project-key \
+                        -Dsonar.projectKey=ci-cd-pipline \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=$SONARQUBE_SERVER \
                         -Dsonar.login=$SONARQUBE_TOKEN"
