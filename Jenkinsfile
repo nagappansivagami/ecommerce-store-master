@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SONARQUBE_SERVER = 'http://192.168.101.41:9000/'
-        SONARQUBE_TOKEN = sqa_914c47408a3e7c8786e2398d718a4c01beb4045e
+        SONARQUBE_TOKEN = sqa_c1c9b0edf5126fcfc39edb48c349de16d72b7de7
         SCANNER_HOME = tool 'SonarQubeScanner' // The SonarQube Scanner CLI tool configured in Jenkins
     }
 
