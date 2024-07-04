@@ -53,4 +53,4 @@ pipeline {
                  body: "Something is wrong with ${env.JOB_NAME} #${env.BUILD_NUMBER}:\n${env.BUILD_URL}"
         }
     }
-}
+)
